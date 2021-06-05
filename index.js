@@ -1,8 +1,19 @@
 const fs = require('fs')
+const express = require('express')
 const Discord = require('discord.js');
 const Client = require('./client/Client');
 const getCommand = require('./util/getCommand');
 require('dotenv').config()
+
+const app = express()
+
+app.get('/', (req, res) => {
+  res.send('lahure Discord bot')
+})
+
+app.listen(process.env.PORT, () => {
+  console.log(`Running on port: ${process.env.PORT}`)
+})
 
 const {
 	prefix
